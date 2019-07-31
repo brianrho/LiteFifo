@@ -1,14 +1,15 @@
 #include <string.h>
 #include "lite_fifo.h"
+#include <Arduino.h>
 
 /* Initialize a generic FIFO with an array of any data type,
  * the number of elements in the array, and the size in bytes of each element
  */
 LiteFifo::LiteFifo(void * elements, uint16_t max_elems, uint8_t elem_sz) : 
     head(0), tail(0), elem_count(0), elements((uint8_t *)elements), 
-    buffer_sz(max_elems * elem_sz), elem_sz(elem_sz)
+    buffer_sz(max_elems * elem_sz), elem_sz(elem_sz), max_elems(max_elems)
 {
-    
+
 }
 
 bool LiteFifo::dequeue(void * elem) {
@@ -21,7 +22,7 @@ bool LiteFifo::dequeue(void * elem) {
     if (tail == buffer_sz)
         tail = 0;
         
-    elem_count--;
+    elem_count--; 
     return true;
 }
 
