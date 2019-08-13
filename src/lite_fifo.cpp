@@ -40,6 +40,15 @@ bool LiteFifo::enqueue(void * elem) {
     return true;
 }
 
+bool LiteFifo::peek(void * elem) {
+    if (elem_count == 0)
+        return false;
+    
+    uint8_t * ptr = (uint8_t *)elem;
+    memcpy(ptr, &elements[tail], elem_sz);
+    return true;
+}
+
 uint16_t LiteFifo::available(void) {
     return elem_count;
 }

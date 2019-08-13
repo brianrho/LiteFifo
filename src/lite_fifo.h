@@ -11,6 +11,7 @@ class LiteFifo {
         LiteFifo(void * elements, uint16_t max_elems, uint8_t _elem_sz);
         bool enqueue(void * elem);
         bool dequeue(void * elem);
+        bool peek(void * elem);
         uint16_t available(void);
         bool full(void);
     
