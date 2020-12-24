@@ -1,6 +1,5 @@
 #include <string.h>
 #include "lite_fifo.h"
-#include <Arduino.h>
 
 /* Initialize a generic FIFO with an array of any data type,
  * the number of elements in the array, and the size in bytes of each element
@@ -55,4 +54,10 @@ uint16_t LiteFifo::available(void) {
 
 bool LiteFifo::full(void) {
     return (elem_count == max_elems);
+}
+
+void LiteFifo::clear(void) {
+    head = 0;
+    tail= 0;
+    elem_count = 0;
 }

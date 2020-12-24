@@ -14,6 +14,7 @@ class LiteFifo {
         bool peek(void * elem);
         uint16_t available(void);
         bool full(void);
+        void clear(void);
     
     private:
         uint16_t head;
